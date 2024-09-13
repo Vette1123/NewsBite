@@ -1,14 +1,11 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
+import { ReactQueryProvider } from './tanstack-provider'
 import { ThemeProvider } from './theme-provider'
 
-interface ProvidersProps {
-  children: React.ReactNode
-}
-
-export const Providers = ({ children }: ProvidersProps) => {
+export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      {children}
+      <ReactQueryProvider>{children}</ReactQueryProvider>
     </ThemeProvider>
   )
 }
