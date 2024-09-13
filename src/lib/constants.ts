@@ -29,4 +29,6 @@ const NYT_SECTIONS = [
   'world',
 ] as const
 
-export { NYT_BASE_URL, NYT_SECTIONS }
+const NYT_API_KEY = import.meta.env.VITE_NYT_API_KEY
+
+export { NYT_BASE_URL, NYT_SECTIONS, NYT_API_KEY }

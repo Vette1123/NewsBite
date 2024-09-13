@@ -3,7 +3,7 @@ import { MainNav } from '@/components/layout/main-nav'
 import { MobileNav } from '@/components/layout/mobile-nav'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { buttonVariants } from '@/components/ui/button'
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/configs/site'
 import { Link } from 'react-router-dom'
 
 export function SiteHeader() {

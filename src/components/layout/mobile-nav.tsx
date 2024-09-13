@@ -1,7 +1,7 @@
 import { Icons } from '@/components/icons'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/configs/site'
 import { cn } from '@/lib/utils'
 import { NavItem } from '@/types/navbar'
 import * as React from 'react'

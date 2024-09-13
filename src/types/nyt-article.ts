@@ -4,10 +4,10 @@ export interface NYTArticle {
   section: string
   last_updated: Date
   num_results: number
-  results: Result[]
+  results: ArticleResult[]
 }
 
-export interface Result {
+export interface ArticleResult {
   section: string
   subsection: string
   title: string

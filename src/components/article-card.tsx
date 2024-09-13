@@ -4,76 +4,15 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Result } from '@/types/nyt-article'
+import { ArticleResult } from '@/types/nyt-article'
 import { CalendarIcon, ClockIcon, NewspaperIcon } from 'lucide-react'
 
-export function ArticleCard() {
+interface ArticleCardProps {
+  article: ArticleResult
+}
+
+export function ArticleCard({ article }: ArticleCardProps) {
   // Mock data for demonstration
-  const article: Result = {
-    section: 'business',
-    subsection: '',
-    title: 'G.M. and Hyundai Plan to Work Together on New Vehicles',
-    abstract:
-      'General Motors and the South Korean automaker say they will collaborate on new vehicles, buying parts and clean energy technologies.',
-    url: 'https://www.nytimes.com/2024/09/12/business/general-motors-hyundai-partnership.html',
-    uri: 'nyt://article/d787cd34-070f-5105-8bcf-17bda909236a',
-    byline: 'By Neal E. Boudette',
-    item_type: 'Article',
-    updated_date: '2024-09-12T20:56:50-04:00',
-    created_date: '2024-09-12T06:00:12-04:00',
-    published_date: '2024-09-12T06:00:12-04:00',
-    material_type_facet: '',
-    kicker: '',
-    des_facet: [
-      'Automobiles',
-      'Alternative and Renewable Energy',
-      'Electric and Hybrid Vehicles',
-      'Factories and Manufacturing',
-      'Supply Chain',
-      'Corporations',
-      'Batteries',
-      'Prices (Fares, Fees and Rates)',
-    ],
-    org_facet: ['General Motors', 'Hyundai Motor Co', 'Tesla Motors Inc'],
-    per_facet: ['Barra, Mary T'],
-    geo_facet: ['South Korea'],
-    multimedia: [
-      {
-        url: 'https://static01.nyt.com/images/2024/09/12/multimedia/12gm-hyundai-kjcg/12gm-hyundai-kjcg-superJumbo.jpg',
-        format: 'Super Jumbo',
-        height: 1421,
-        width: 2048,
-        type: 'image',
-        subtype: 'photo',
-        caption:
-          'A General Motors assembly plant in Lake Orion, Mich. The automaker will work with Hyundai to develop new vehicles and technologies.',
-        copyright: 'Rebecca Cook/Reuters',
-      },
-      {
-        url: 'https://static01.nyt.com/images/2024/09/12/multimedia/12gm-hyundai-kjcg/12gm-hyundai-kjcg-threeByTwoSmallAt2X.jpg',
-        format: 'threeByTwoSmallAt2X',
-        height: 400,
-        width: 600,
-        type: 'image',
-        subtype: 'photo',
-        caption:
-          'A General Motors assembly plant in Lake Orion, Mich. The automaker will work with Hyundai to develop new vehicles and technologies.',
-        copyright: 'Rebecca Cook/Reuters',
-      },
-      {
-        url: 'https://static01.nyt.com/images/2024/09/12/multimedia/12gm-hyundai-kjcg/12gm-hyundai-kjcg-thumbLarge.jpg',
-        format: 'Large Thumbnail',
-        height: 150,
-        width: 150,
-        type: 'image',
-        subtype: 'photo',
-        caption:
-          'A General Motors assembly plant in Lake Orion, Mich. The automaker will work with Hyundai to develop new vehicles and technologies.',
-        copyright: 'Rebecca Cook/Reuters',
-      },
-    ],
-    short_url: '',
-  }
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)

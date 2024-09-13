@@ -1,11 +1,11 @@
-import { ArticleCard } from '@/components/article-card'
+import { ArticlesContainer } from '@/components/containers/articles-container'
+import { ArticlesSkeleton } from '@/components/skeletons/articles'
+import { Suspense } from 'react'
 
 export const HomePage = () => {
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      <ArticleCard />
-      <ArticleCard />
-      <ArticleCard />
-    </div>
+    <Suspense fallback={<ArticlesSkeleton />}>
+      <ArticlesContainer />
+    </Suspense>
   )
 }
