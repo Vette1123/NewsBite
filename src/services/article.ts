@@ -1,34 +1,77 @@
 import { NYT_API_KEY, NYT_BASE_URL, NYT_SEARCH_ARTICLES_BASE_URL } from '@/lib/constants'
-import { NYTArticle } from '@/types/nyt-article'
+import { NYTArticle, UnifiedArticleResult } from '@/types/nyt-article'
+import { NYTSearch } from '@/types/nyt-search-article'
 import axios from 'axios'
 import { format } from 'date-fns'
 
-export const getArticles = async (query: any): Promise<NYTArticle> => {
-  const [_, section, startDate, endDate] = query.queryKey
-  const sectionQuery = !!section ? section : 'home'
-  let startDateQuery = ''
-  let endDateQuery = ''
-  let baseURL = ''
+export async function getArticles(query: any): Promise<UnifiedArticleResult> {
+  const [_, section, keyword, startDate, endDate] = query?.queryKey
+  const isSearch = !!(startDate || endDate || keyword)
 
-  if (startDate) {
-    startDateQuery = format(new Date(startDate), 'yyyyMMdd')
-  }
-  if (endDate) {
-    endDateQuery = format(new Date(endDate), 'yyyyMMdd')
-  }
+  const querySection = !!section ? section : 'home'
 
-  if (startDate || endDate) {
-    baseURL = `${NYT_SEARCH_ARTICLES_BASE_URL}?api-key=${NYT_API_KEY}`
-    if (startDate) {
-      baseURL += `&begin_date=${startDateQuery}`
-    }
-    if (endDate) {
-      baseURL += `&end_date=${endDateQuery}`
-    }
-  } else {
-    baseURL = `${NYT_BASE_URL}${sectionQuery}.json?api-key=${NYT_API_KEY}`
+  const baseURL = isSearch
+    ? `${NYT_SEARCH_ARTICLES_BASE_URL}?api-key=${NYT_API_KEY}`
+    : `${NYT_BASE_URL}${querySection}.json?api-key=${NYT_API_KEY}`
+
+  const params: Record<string, string> = {}
+
+  if (isSearch) {
+    if (startDate) params.begin_date = format(new Date(startDate), 'yyyyMMdd')
+    if (endDate) params.end_date = format(new Date(endDate), 'yyyyMMdd')
+    if (keyword) params.q = keyword
+    params.sort = 'newest'
   }
 
-  const response = await axios.get(baseURL)
-  return response?.data
+  const response = await axios.get(baseURL, { params })
+  const data = response.data
+
+  return isSearch ? unifySearchResults(data) : unifyTopStories(data)
+}
+
+function unifySearchResults(data: NYTSearch): UnifiedArticleResult {
+  return {
+    status: data.status,
+    copyright: data.copyright,
+    results: data.response.docs.map((doc) => ({
+      section: doc.section_name,
+      title: doc.headline.main,
+      abstract: doc.abstract,
+      url: doc.web_url,
+      uri: doc.uri,
+      byline: doc.byline.original || '',
+      kicker: '',
+      des_facet: [],
+      published_date: doc.pub_date,
+      multimedia: doc.multimedia.map((media) => ({
+        url: `https://www.nytimes.com/${media.url}`,
+        format: media.subtype,
+        height: media.height,
+        width: media.width,
+        type: media.type,
+        subtype: media.subtype,
+        caption: media.caption || '',
+        copyright: '',
+      })),
+    })),
+  }
+}
+
+function unifyTopStories(data: NYTArticle): UnifiedArticleResult {
+  return {
+    status: data.status,
+    copyright: data.copyright,
+    results: data.results.map((result) => ({
+      section: result.section,
+      title: result.title,
+      abstract: result.abstract,
+      url: result.url,
+      uri: result.uri,
+      byline: result.byline,
+      published_date: result.published_date,
+      multimedia: result.multimedia,
+      kicker: result.kicker,
+      des_facet: result.des_facet || [],
+    })),
+  }
 }

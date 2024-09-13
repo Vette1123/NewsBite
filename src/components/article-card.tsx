@@ -5,11 +5,11 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { formatDate } from '@/lib/utils'
-import { ArticleResult } from '@/types/nyt-article'
+import { UnifiedArticle } from '@/types/nyt-article'
 import { CalendarIcon, ClockIcon, NewspaperIcon } from 'lucide-react'
 
 interface ArticleCardProps {
-  article: ArticleResult
+  article: UnifiedArticle
 }
 
 export function ArticleCard({ article }: ArticleCardProps) {
@@ -19,7 +19,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
         <CardHeader className="relative pb-0">
           <div className="absolute left-4 top-4 z-10">
             <Badge variant="secondary" className="bg-primary capitalize text-primary-foreground">
-              {article?.section_name || article?.section}
+              {article?.section}
             </Badge>
           </div>
           {article?.multimedia && article?.multimedia?.length > 0 && (
@@ -38,9 +38,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
           <div className="mb-4 flex items-center space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center">
               <CalendarIcon className="mr-1 h-4 w-4" />
-              <span>
-                {article?.published_date ? formatDate(article?.published_date) : formatDate(article?.pub_date)}
-              </span>
+              <span>{formatDate(article?.published_date)}</span>
             </div>
             <div className="flex items-center">
               <ClockIcon className="mr-1 h-4 w-4" />

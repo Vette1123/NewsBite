@@ -58,3 +58,22 @@ export enum Subtype {
 export enum Type {
   Image = 'image',
 }
+
+export interface UnifiedArticleResult {
+  status: string
+  copyright: string
+  results: UnifiedArticle[]
+}
+
+export interface UnifiedArticle {
+  section: string
+  title: string
+  abstract: string
+  url: string
+  uri: string
+  byline: string
+  published_date: string
+  multimedia: Multimedia[]
+  kicker: string
+  des_facet: string[]
+}

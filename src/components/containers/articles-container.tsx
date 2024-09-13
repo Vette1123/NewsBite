@@ -11,7 +11,7 @@ interface ArticlesContainerProps {
 
 export const ArticlesContainer = ({ startDate, endDate }: ArticlesContainerProps) => {
   const { data, isLoading, isError, error } = useArticle({ queryKey: ['', startDate, endDate] })
-  const articles = data?.results || data?.response?.docs
+  const articles = data?.results
 
   if (isLoading) {
     return <ArticlesSkeleton />
