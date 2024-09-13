@@ -1,5 +1,5 @@
-import React, { PropsWithChildren } from 'react'
-import { ReactQueryProvider } from './tanstack-provider'
+import { PropsWithChildren } from 'react'
+import { ReactQueryProvider } from './react-query-provider'
 import { ThemeProvider } from './theme-provider'
 
 export const Providers = ({ children }: PropsWithChildren) => {
