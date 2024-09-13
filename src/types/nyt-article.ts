@@ -5,11 +5,16 @@ export interface NYTArticle {
   last_updated: Date
   num_results: number
   results: ArticleResult[]
+  response?: {
+    docs: ArticleResult[]
+  }
 }
 
 export interface ArticleResult {
   section: string
   subsection: string
+  section_name?: string
+  pub_date: string
   title: string
   abstract: string
   url: string

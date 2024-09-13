@@ -1,9 +1,13 @@
 import { getArticles } from '@/services/article'
 import { useQuery } from '@tanstack/react-query'
 
-export const useArticle = () =>
+interface UseArticleProps {
+  queryKey: any[]
+}
+
+export const useArticle = ({ queryKey }: UseArticleProps) =>
   useQuery({
-    queryKey: ['articles'],
+    queryKey: ['articles', ...queryKey],
     queryFn: getArticles,
     refetchOnWindowFocus: true,
   })

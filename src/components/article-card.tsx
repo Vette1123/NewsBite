@@ -19,34 +19,36 @@ export function ArticleCard({ article }: ArticleCardProps) {
         <CardHeader className="relative pb-0">
           <div className="absolute left-4 top-4 z-10">
             <Badge variant="secondary" className="bg-primary capitalize text-primary-foreground">
-              {article.section}
+              {article?.section_name || article?.section}
             </Badge>
           </div>
-          {article.multimedia && article.multimedia.length > 0 && (
+          {article?.multimedia && article?.multimedia?.length > 0 && (
             <div className="h-64 w-full overflow-hidden rounded-t-lg">
               <img
-                src={article.multimedia[0].url}
-                alt={article.multimedia[0].caption}
+                src={article?.multimedia[0]?.url}
+                alt={article?.multimedia[0]?.caption}
                 className="h-full w-full object-cover"
               />
             </div>
           )}
         </CardHeader>
         <CardContent className="pt-6">
-          <CardTitle className="mb-2 text-2xl font-bold">{article.title}</CardTitle>
-          <p className="mb-4 text-muted-foreground">{article.abstract}</p>
+          <CardTitle className="mb-2 text-2xl font-bold">{article?.title}</CardTitle>
+          <p className="mb-4 text-muted-foreground">{article?.abstract}</p>
           <div className="mb-4 flex items-center space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center">
               <CalendarIcon className="mr-1 h-4 w-4" />
-              <span>{formatDate(article.published_date)}</span>
+              <span>
+                {article?.published_date ? formatDate(article?.published_date) : formatDate(article?.pub_date)}
+              </span>
             </div>
             <div className="flex items-center">
               <ClockIcon className="mr-1 h-4 w-4" />
-              <span>{article.kicker}</span>
+              <span>{article?.kicker}</span>
             </div>
           </div>
           <div className="mb-4 flex flex-wrap gap-2">
-            {article.des_facet.map((tag, index) => (
+            {article?.des_facet?.map((tag, index) => (
               <Badge key={index} variant="outline">
                 {tag}
               </Badge>
@@ -62,9 +64,9 @@ export function ArticleCard({ article }: ArticleCardProps) {
               <NewspaperIcon className="h-4 w-4" />
             </AvatarFallback>
           </Avatar>
-          <span className="text-sm font-medium">{article.byline}</span>
+          <span className="text-sm font-medium">{article?.byline}</span>
         </div>
-        <Button variant="outline" onClick={() => window.open(article.url, '_blank')}>
+        <Button variant="outline" onClick={() => window.open(article?.url, '_blank')}>
           Read More
         </Button>
       </CardFooter>

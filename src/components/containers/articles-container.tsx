@@ -4,9 +4,14 @@ import ErrorDisplay from '../error-display'
 import NoResultsFound from '../no-results-found'
 import { ArticlesSkeleton } from '../skeletons/articles'
 
-export const ArticlesContainer = () => {
-  const { data, isLoading, isError, error } = useArticle()
-  const articles = data?.results
+interface ArticlesContainerProps {
+  startDate: Date | undefined
+  endDate: Date | undefined
+}
+
+export const ArticlesContainer = ({ startDate, endDate }: ArticlesContainerProps) => {
+  const { data, isLoading, isError, error } = useArticle({ queryKey: ['', startDate, endDate] })
+  const articles = data?.results || data?.response?.docs
 
   if (isLoading) {
     return <ArticlesSkeleton />

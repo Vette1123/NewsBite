@@ -1,11 +1,20 @@
 import { ArticlesContainer } from '@/components/containers/articles-container'
-import { ArticlesSkeleton } from '@/components/skeletons/articles'
-import { Suspense } from 'react'
+import { ArticlesFilterContainer } from '@/components/containers/articles-filter-container'
+import { useState } from 'react'
 
 export const HomePage = () => {
+  const [startDate, setStartDate] = useState<Date | undefined>(undefined)
+  const [endDate, setEndDate] = useState<Date | undefined>(undefined)
+
   return (
-    <Suspense fallback={<ArticlesSkeleton />}>
-      <ArticlesContainer />
-    </Suspense>
+    <main className="flex flex-col gap-4">
+      <ArticlesFilterContainer
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
+      />
+      <ArticlesContainer startDate={startDate} endDate={endDate} />
+    </main>
   )
 }

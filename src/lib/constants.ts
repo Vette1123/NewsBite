@@ -1,5 +1,5 @@
-const NYT_BASE_URL = 'https://api.nytimes.com/svc/topstories/v2/'
-
+const NYT_TOP_STORIES_BASE_URL = 'https://api.nytimes.com/svc/topstories/v2/'
+const NYT_SEARCH_ARTICLES_BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json'
 const NYT_SECTIONS = [
   'home',
   'arts',
@@ -31,4 +31,4 @@ const NYT_SECTIONS = [
 
 const NYT_API_KEY = import.meta.env.VITE_NYT_API_KEY
 
-export { NYT_BASE_URL, NYT_SECTIONS, NYT_API_KEY }
+export { NYT_TOP_STORIES_BASE_URL as NYT_BASE_URL, NYT_SECTIONS, NYT_API_KEY, NYT_SEARCH_ARTICLES_BASE_URL }
