@@ -6,7 +6,7 @@ export function AppLayout() {
     <>
       <SiteHeader />
       <div className="flex flex-grow flex-col">
-        <div className="container mx-auto flex flex-grow flex-col px-4 py-4 md:px-0">
+        <div className="container mx-auto flex flex-grow flex-col p-4">
           <Outlet />
         </div>
       </div>

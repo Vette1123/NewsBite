@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container mx-auto flex h-16 w-full items-center justify-between px-4 md:px-0">
+      <div className="container mx-auto flex h-16 w-full items-center justify-between px-4">
         <MainNav items={siteConfig.mainNav} />
         <MobileNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">

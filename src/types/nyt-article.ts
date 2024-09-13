@@ -9,18 +9,18 @@ export interface NYTArticle {
 
 export interface Result {
   section: string
-  subsection: Subsection
+  subsection: string
   title: string
   abstract: string
   url: string
   uri: string
   byline: string
-  item_type: ItemType
+  item_type: string
   updated_date: string
   created_date: string
   published_date: string
   material_type_facet: string
-  kicker: Kicker
+  kicker: string
   des_facet: string[]
   org_facet: string[]
   per_facet: string[]
@@ -29,25 +29,13 @@ export interface Result {
   short_url: string
 }
 
-export enum ItemType {
-  Article = 'Article',
-}
-
-export enum Kicker {
-  AskNYTClimate = 'Ask NYT Climate',
-  Empty = '',
-  Episode = 'episode',
-  TheUltimateTeamSportsAndFashion = 'The Ultimate Team: Sports and Fashion',
-  TimesInsider = 'times insider',
-}
-
 export interface Multimedia {
   url: string
-  format: Format
+  format: string
   height: number
   width: number
-  type: Type
-  subtype: Subtype
+  type: string
+  subtype: string
   caption: string
   copyright: string
 }
@@ -64,13 +52,4 @@ export enum Subtype {
 
 export enum Type {
   Image = 'image',
-}
-
-export enum Subsection {
-  Asia = 'asia',
-  Autoracing = 'autoracing',
-  Collectibles = 'collectibles',
-  Economy = 'economy',
-  Empty = '',
-  EnergyEnvironment = 'energy-environment',
 }
