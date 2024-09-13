@@ -10,37 +10,69 @@ import { CalendarIcon, ClockIcon, NewspaperIcon } from 'lucide-react'
 export function ArticleCard() {
   // Mock data for demonstration
   const article: Result = {
-    section: 'technology',
-    subsection: 'personaltech',
-    title: 'The Future of AI: Transforming Industries and Daily Life',
+    section: 'business',
+    subsection: '',
+    title: 'G.M. and Hyundai Plan to Work Together on New Vehicles',
     abstract:
-      'Artificial Intelligence is rapidly evolving, promising to revolutionize various sectors from healthcare to finance. This article explores the potential impacts and challenges ahead.',
-    url: 'https://www.nytimes.com/2023/05/15/technology/ai-future-impacts.html',
-    uri: 'nyt://article/1234abcd-5678-90ef-ghij-klmnopqrstuv',
-    byline: 'By John Doe',
+      'General Motors and the South Korean automaker say they will collaborate on new vehicles, buying parts and clean energy technologies.',
+    url: 'https://www.nytimes.com/2024/09/12/business/general-motors-hyundai-partnership.html',
+    uri: 'nyt://article/d787cd34-070f-5105-8bcf-17bda909236a',
+    byline: 'By Neal E. Boudette',
     item_type: 'Article',
-    updated_date: '2023-05-15T09:00:00-04:00',
-    created_date: '2023-05-14T18:30:00-04:00',
-    published_date: '2023-05-15T06:00:00-04:00',
-    material_type_facet: 'News',
-    kicker: 'Tech Review',
-    des_facet: ['Artificial Intelligence', 'Technology', 'Innovation'],
-    org_facet: ['OpenAI', 'Google', 'Microsoft'],
-    per_facet: ['Sundar Pichai', 'Sam Altman'],
-    geo_facet: ['Silicon Valley', 'San Francisco'],
+    updated_date: '2024-09-12T20:56:50-04:00',
+    created_date: '2024-09-12T06:00:12-04:00',
+    published_date: '2024-09-12T06:00:12-04:00',
+    material_type_facet: '',
+    kicker: '',
+    des_facet: [
+      'Automobiles',
+      'Alternative and Renewable Energy',
+      'Electric and Hybrid Vehicles',
+      'Factories and Manufacturing',
+      'Supply Chain',
+      'Corporations',
+      'Batteries',
+      'Prices (Fares, Fees and Rates)',
+    ],
+    org_facet: ['General Motors', 'Hyundai Motor Co', 'Tesla Motors Inc'],
+    per_facet: ['Barra, Mary T'],
+    geo_facet: ['South Korea'],
     multimedia: [
       {
-        url: 'https://static01.nyt.com/images/2023/05/15/multimedia/15ai-future-1-fklt/15ai-future-1-fklt-superJumbo.jpg',
+        url: 'https://static01.nyt.com/images/2024/09/12/multimedia/12gm-hyundai-kjcg/12gm-hyundai-kjcg-superJumbo.jpg',
         format: 'Super Jumbo',
-        height: 1365,
+        height: 1421,
         width: 2048,
         type: 'image',
         subtype: 'photo',
-        caption: 'AI-powered robots in a modern laboratory setting.',
-        copyright: '© 2023 The New York Times',
+        caption:
+          'A General Motors assembly plant in Lake Orion, Mich. The automaker will work with Hyundai to develop new vehicles and technologies.',
+        copyright: 'Rebecca Cook/Reuters',
+      },
+      {
+        url: 'https://static01.nyt.com/images/2024/09/12/multimedia/12gm-hyundai-kjcg/12gm-hyundai-kjcg-threeByTwoSmallAt2X.jpg',
+        format: 'threeByTwoSmallAt2X',
+        height: 400,
+        width: 600,
+        type: 'image',
+        subtype: 'photo',
+        caption:
+          'A General Motors assembly plant in Lake Orion, Mich. The automaker will work with Hyundai to develop new vehicles and technologies.',
+        copyright: 'Rebecca Cook/Reuters',
+      },
+      {
+        url: 'https://static01.nyt.com/images/2024/09/12/multimedia/12gm-hyundai-kjcg/12gm-hyundai-kjcg-thumbLarge.jpg',
+        format: 'Large Thumbnail',
+        height: 150,
+        width: 150,
+        type: 'image',
+        subtype: 'photo',
+        caption:
+          'A General Motors assembly plant in Lake Orion, Mich. The automaker will work with Hyundai to develop new vehicles and technologies.',
+        copyright: 'Rebecca Cook/Reuters',
       },
     ],
-    short_url: 'https://nyti.ms/3abcdef',
+    short_url: '',
   }
 
   const formatDate = (dateString: string) => {
@@ -52,7 +84,7 @@ export function ArticleCard() {
     <Card className="w-full max-w-3xl">
       <CardHeader className="relative pb-0">
         <div className="absolute left-4 top-4 z-10">
-          <Badge variant="secondary" className="bg-primary text-primary-foreground">
+          <Badge variant="secondary" className="bg-primary capitalize text-primary-foreground">
             {article.section}
           </Badge>
         </div>
