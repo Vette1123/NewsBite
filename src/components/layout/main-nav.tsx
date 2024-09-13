@@ -1,7 +1,7 @@
-import { Icons } from '@/components/icons'
 import { siteConfig } from '@/configs/site'
 import { cn } from '@/lib/utils'
 import { NavItem } from '@/types/navbar'
+import { NewspaperIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 interface MainNavProps {
@@ -12,7 +12,7 @@ export function MainNav({ items }: MainNavProps) {
   return (
     <div className="hidden gap-6 md:gap-10 lg:flex">
       <Link to="/" className="flex items-center space-x-2">
-        <Icons.logo className="h-6 w-6" />
+        <NewspaperIcon className="size-6" />
         <span className="inline-block font-bold">{siteConfig.name}</span>
       </Link>
       {items?.length ? (
