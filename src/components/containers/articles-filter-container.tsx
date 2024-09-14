@@ -1,3 +1,4 @@
+import { NYTSectionCombobox } from '../article-category-search'
 import { DatePickerDemo } from '../date-component'
 
 interface ArticlesFilterContainerProps {
@@ -15,6 +16,7 @@ export const ArticlesFilterContainer = ({
 }: ArticlesFilterContainerProps) => {
   return (
     <div className="flex items-center gap-x-4">
+      <NYTSectionCombobox />
       <DatePickerDemo label="Start date" date={startDate} setDate={setStartDate} />
       <DatePickerDemo label="End date" date={endDate} setDate={setEndDate} />
     </div>

@@ -1,4 +1,5 @@
 import { useArticle } from '@/hooks/use-article'
+import { useArticleCategory } from '@/hooks/use-category'
 import { ArticleCard } from '../article-card'
 import ErrorDisplay from '../error-display'
 import NoResultsFound from '../no-results-found'
@@ -10,7 +11,8 @@ interface ArticlesContainerProps {
 }
 
 export const ArticlesContainer = ({ startDate, endDate }: ArticlesContainerProps) => {
-  const { data, isLoading, isError, error } = useArticle({ queryKey: ['', startDate, endDate] })
+  const { category } = useArticleCategory()
+  const { data, isLoading, isError, error } = useArticle({ queryKey: [category, '', startDate, endDate] })
   const articles = data?.results
 
   if (isLoading) {

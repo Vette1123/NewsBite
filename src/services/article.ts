@@ -5,10 +5,10 @@ import axios from 'axios'
 import { format } from 'date-fns'
 
 export async function getArticles(query: any): Promise<UnifiedArticleResult> {
-  const [_, section, keyword, startDate, endDate] = query?.queryKey
+  const [_, category, keyword, startDate, endDate] = query?.queryKey
   const isSearch = !!(startDate || endDate || keyword)
 
-  const querySection = !!section ? section : 'home'
+  const querySection = !!category ? category : 'home'
 
   const baseURL = isSearch
     ? `${NYT_SEARCH_ARTICLES_BASE_URL}?api-key=${NYT_API_KEY}`

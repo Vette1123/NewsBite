@@ -29,6 +29,8 @@ const NYT_SECTIONS = [
   'world',
 ] as const
 
+export type NYTSection = (typeof NYT_SECTIONS)[number]
+
 const NYT_API_KEY = import.meta.env.VITE_NYT_API_KEY
 
 export { NYT_TOP_STORIES_BASE_URL as NYT_BASE_URL, NYT_SECTIONS, NYT_API_KEY, NYT_SEARCH_ARTICLES_BASE_URL }
