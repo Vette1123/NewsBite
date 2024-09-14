@@ -22,13 +22,19 @@ export function ArticleCard({ article }: ArticleCardProps) {
               {article?.section}
             </Badge>
           </div>
-          {article?.multimedia && article?.multimedia?.length > 0 && (
+          {article?.multimedia && article?.multimedia?.length > 0 ? (
             <div className="h-64 w-full overflow-hidden rounded-t-lg">
               <img
                 src={article?.multimedia[0]?.url}
                 alt={article?.multimedia[0]?.caption}
                 className="h-full w-full object-cover"
               />
+            </div>
+          ) : (
+            <div className="h-64 w-full overflow-hidden rounded-t-lg bg-gray-200">
+              <div className="flex h-full w-full items-center justify-center">
+                <NewspaperIcon className="h-12 w-12 text-gray-500" />
+              </div>
             </div>
           )}
         </CardHeader>
