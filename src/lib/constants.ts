@@ -1,5 +1,6 @@
 const NYT_TOP_STORIES_BASE_URL = 'https://api.nytimes.com/svc/topstories/v2/'
-const NYT_SEARCH_ARTICLES_BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json'
+const NYT_SEARCH_ARTICLES_BASE_URL =
+  'https://api.nytimes.com/svc/search/v2/articlesearch.json'
 const NEWS_API_SOURCES_BASE_URL = 'https://newsapi.org/v2/top-headlines/sources'
 
 const NYT_SECTIONS = [

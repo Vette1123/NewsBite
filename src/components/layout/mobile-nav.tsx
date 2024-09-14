@@ -1,6 +1,11 @@
 import { Icons } from '@/components/icons'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 import { siteConfig } from '@/configs/site'
 import { cn } from '@/lib/utils'
 import { NavItem } from '@/types/navbar'
@@ -24,7 +29,10 @@ export function MobileNav({ items }: MobileNavProps) {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="inset-y-0 flex h-auto w-[350px] flex-col p-0">
+      <SheetContent
+        side="left"
+        className="inset-y-0 flex h-auto w-[350px] flex-col p-0"
+      >
         <div className="px-7 py-4">
           <SheetClose asChild>
             <Link aria-label="Home" to="/" className="flex w-fit items-center">
@@ -38,7 +46,11 @@ export function MobileNav({ items }: MobileNavProps) {
           {items?.map((item, index) => (
             <div className="border-b-2 last:border-b-0" key={item.title}>
               <SheetClose asChild>
-                <MobileLink key={index} href={item.href!} disabled={item.disabled}>
+                <MobileLink
+                  key={index}
+                  href={item.href!}
+                  disabled={item.disabled}
+                >
                   {item.title}
                 </MobileLink>
               </SheetClose>

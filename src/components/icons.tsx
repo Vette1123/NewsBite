@@ -1,4 +1,11 @@
-import { LucideProps, Menu, Moon, SunMedium, Twitter, type LucideIcon } from 'lucide-react'
+import {
+  LucideProps,
+  Menu,
+  Moon,
+  SunMedium,
+  Twitter,
+  type LucideIcon,
+} from 'lucide-react'
 
 export type Icon = LucideIcon
 

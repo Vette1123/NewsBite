@@ -3,7 +3,14 @@ import { ArticlesFilterContainer } from '@/components/containers/articles-filter
 import { useFilterState } from '@/hooks/use-filter-state'
 
 export const HomePage = () => {
-  const { startDate, endDate, keyword, setStartDate, setEndDate, debouncedKeyword } = useFilterState()
+  const {
+    startDate,
+    endDate,
+    keyword,
+    setStartDate,
+    setEndDate,
+    debouncedKeyword,
+  } = useFilterState()
 
   return (
     <main className="flex flex-col gap-4">
@@ -14,7 +21,11 @@ export const HomePage = () => {
         setEndDate={setEndDate}
         debounced={debouncedKeyword}
       />
-      <ArticlesContainer startDate={startDate} endDate={endDate} keyword={keyword} />
+      <ArticlesContainer
+        startDate={startDate}
+        endDate={endDate}
+        keyword={keyword}
+      />
     </main>
   )
 }

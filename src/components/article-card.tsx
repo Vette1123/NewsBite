@@ -1,7 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import { formatDate } from '@/lib/utils'
 import { UnifiedArticle } from '@/types/nyt-article'
 import { CalendarIcon, ClockIcon, NewspaperIcon } from 'lucide-react'
@@ -16,7 +22,10 @@ export function ArticleCard({ article }: ArticleCardProps) {
       <div className="flex-grow overflow-auto">
         <CardHeader className="relative pb-0">
           <div className="absolute left-4 top-4 z-10">
-            <Badge variant="secondary" className="bg-primary capitalize text-primary-foreground">
+            <Badge
+              variant="secondary"
+              className="bg-primary capitalize text-primary-foreground"
+            >
               {article?.section}
             </Badge>
           </div>
@@ -37,7 +46,9 @@ export function ArticleCard({ article }: ArticleCardProps) {
           )}
         </CardHeader>
         <CardContent className="pt-6">
-          <CardTitle className="mb-2 text-2xl font-bold">{article?.title}</CardTitle>
+          <CardTitle className="mb-2 text-2xl font-bold">
+            {article?.title}
+          </CardTitle>
           <p className="mb-4 text-muted-foreground">{article?.abstract}</p>
           <div className="mb-4 flex items-center space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center">
@@ -61,14 +72,20 @@ export function ArticleCard({ article }: ArticleCardProps) {
       <CardFooter className="mt-auto flex items-center justify-between border-t p-4">
         <div className="flex items-center space-x-2">
           <Avatar>
-            <AvatarImage src="/placeholder.svg?height=40&width=40" alt="Author" />
+            <AvatarImage
+              src="/placeholder.svg?height=40&width=40"
+              alt="Author"
+            />
             <AvatarFallback>
               <NewspaperIcon className="h-4 w-4" />
             </AvatarFallback>
           </Avatar>
           <span className="text-sm font-medium">{article?.byline}</span>
         </div>
-        <Button variant="outline" onClick={() => window.open(article?.url, '_blank')}>
+        <Button
+          variant="outline"
+          onClick={() => window.open(article?.url, '_blank')}
+        >
           Read More
         </Button>
       </CardFooter>

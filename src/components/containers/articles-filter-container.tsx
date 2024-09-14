@@ -24,7 +24,11 @@ export const ArticlesFilterContainer = ({
       <NYTSectionCombobox />
       <ArticleSourceCombobox />
       <div className="flex gap-4">
-        <DatePickerDemo label="Start date" date={startDate} setDate={setStartDate} />
+        <DatePickerDemo
+          label="Start date"
+          date={startDate}
+          setDate={setStartDate}
+        />
         <DatePickerDemo label="End date" date={endDate} setDate={setEndDate} />
       </div>
     </div>

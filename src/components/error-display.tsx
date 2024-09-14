@@ -13,11 +13,13 @@ export default function ErrorDisplay({ error }: ErrorDisplayProps) {
   if (error instanceof AxiosError) {
     if (error.code === 'ECONNABORTED') {
       title = 'Request Timeout'
-      message = 'The request took too long to complete. Please check your connection and try again.'
+      message =
+        'The request took too long to complete. Please check your connection and try again.'
       Icon = Clock
     } else if (error.code === 'ERR_NETWORK') {
       title = 'Network Error'
-      message = 'Unable to connect to the server. Please check your internet connection.'
+      message =
+        'Unable to connect to the server. Please check your internet connection.'
       Icon = WifiOff
     } else if (error.response) {
       if (error.response.status === 404) {

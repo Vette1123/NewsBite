@@ -1,6 +1,17 @@
 import { Button } from '@/components/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 import { useArticleCategory } from '@/hooks/use-category'
 import { NYT_SECTIONS, NYTSection } from '@/lib/constants'
 import { cn } from '@/lib/utils'
@@ -15,7 +26,10 @@ export function NYTSectionCombobox() {
 
   return (
     <div className="flex flex-col space-y-1">
-      <Label htmlFor="nyt-section-combobox" className="w-fit text-sm font-medium">
+      <Label
+        htmlFor="nyt-section-combobox"
+        className="w-fit text-sm font-medium"
+      >
         Category
       </Label>
       <Popover open={open} onOpenChange={setOpen}>
@@ -27,7 +41,9 @@ export function NYTSectionCombobox() {
             aria-expanded={open}
             className="w-full justify-between"
           >
-            {category ? category.charAt(0).toUpperCase() + category.slice(1) : 'Select NYT section...'}
+            {category
+              ? category.charAt(0).toUpperCase() + category.slice(1)
+              : 'Select NYT section...'}
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
@@ -43,11 +59,20 @@ export function NYTSectionCombobox() {
                       key={section}
                       value={section}
                       onSelect={(currentValue) => {
-                        setCategory(currentValue === category ? '' : (currentValue as NYTSection))
+                        setCategory(
+                          currentValue === category
+                            ? ''
+                            : (currentValue as NYTSection)
+                        )
                         setOpen(false)
                       }}
                     >
-                      <Check className={cn('mr-2 h-4 w-4', category === section ? 'opacity-100' : 'opacity-0')} />
+                      <Check
+                        className={cn(
+                          'mr-2 h-4 w-4',
+                          category === section ? 'opacity-100' : 'opacity-0'
+                        )}
+                      />
                       {section.charAt(0).toUpperCase() + section.slice(1)}
                     </CommandItem>
                   ))}
