@@ -9,8 +9,9 @@ import axios from 'axios'
 import { format } from 'date-fns'
 
 export async function getArticles(query: any): Promise<UnifiedArticleResult> {
-  const [_, category, keyword, startDate, endDate, source] = query?.queryKey
-  const isSearch = !!(startDate || endDate || keyword || source)
+  const [_, category, keyword, startDate, endDate, source, author] =
+    query?.queryKey
+  const isSearch = !!(startDate || endDate || keyword || source || author)
 
   const querySection = !!category ? category : 'home'
 
@@ -25,7 +26,7 @@ export async function getArticles(query: any): Promise<UnifiedArticleResult> {
     if (endDate) params.end_date = format(new Date(endDate), 'yyyyMMdd')
     if (keyword) params.q = keyword
     if (source) params.fq = `${source}`
-    // if (source) params.fq = `source:("${source}")`
+    if (author) params.fq = `${author}`
     params.sort = 'newest'
   }
 

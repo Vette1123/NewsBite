@@ -1,4 +1,5 @@
 import { useArticle } from '@/hooks/use-article'
+import { useArticleAuthor } from '@/hooks/use-author'
 import { useArticleCategory } from '@/hooks/use-category'
 import { useArticleSource } from '@/hooks/use-source'
 import { ArticleCard } from '../article-card'
@@ -19,8 +20,9 @@ export const ArticlesContainer = ({
 }: ArticlesContainerProps) => {
   const { category } = useArticleCategory()
   const { source } = useArticleSource()
+  const { author } = useArticleAuthor()
   const { data, isLoading, isError, error } = useArticle({
-    queryKeys: [category, keyword, startDate, endDate, source],
+    queryKeys: [category, keyword, startDate, endDate, source, author],
   })
   const articles = data?.results
 
