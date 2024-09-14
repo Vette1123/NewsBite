@@ -15,10 +15,12 @@ export const ArticlesFilterContainer = ({
   setEndDate,
 }: ArticlesFilterContainerProps) => {
   return (
-    <div className="flex items-center gap-x-4">
+    <div className="flex flex-wrap items-center gap-4">
       <NYTSectionCombobox />
-      <DatePickerDemo label="Start date" date={startDate} setDate={setStartDate} />
-      <DatePickerDemo label="End date" date={endDate} setDate={setEndDate} />
+      <div className="flex gap-4">
+        <DatePickerDemo label="Start date" date={startDate} setDate={setStartDate} />
+        <DatePickerDemo label="End date" date={endDate} setDate={setEndDate} />
+      </div>
     </div>
   )
 }
