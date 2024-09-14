@@ -1,12 +1,16 @@
-import { NYT_API_KEY, NYT_BASE_URL, NYT_SEARCH_ARTICLES_BASE_URL } from '@/lib/constants'
+import {
+  NYT_API_KEY,
+  NYT_BASE_URL,
+  NYT_SEARCH_ARTICLES_BASE_URL,
+} from '@/lib/constants'
 import { NYTArticle, UnifiedArticleResult } from '@/types/nyt-article'
 import { NYTSearch } from '@/types/nyt-search-article'
 import axios from 'axios'
 import { format } from 'date-fns'
 
 export async function getArticles(query: any): Promise<UnifiedArticleResult> {
-  const [_, category, keyword, startDate, endDate] = query?.queryKey
-  const isSearch = !!(startDate || endDate || keyword)
+  const [_, category, keyword, startDate, endDate, source] = query?.queryKey
+  const isSearch = !!(startDate || endDate || keyword || source)
 
   const querySection = !!category ? category : 'home'
 
@@ -20,6 +24,8 @@ export async function getArticles(query: any): Promise<UnifiedArticleResult> {
     if (startDate) params.begin_date = format(new Date(startDate), 'yyyyMMdd')
     if (endDate) params.end_date = format(new Date(endDate), 'yyyyMMdd')
     if (keyword) params.q = keyword
+    if (source) params.fq = `${source}`
+    // if (source) params.fq = `source:("${source}")`
     params.sort = 'newest'
   }
 

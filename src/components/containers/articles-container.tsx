@@ -1,5 +1,6 @@
 import { useArticle } from '@/hooks/use-article'
 import { useArticleCategory } from '@/hooks/use-category'
+import { useArticleSource } from '@/hooks/use-source'
 import { ArticleCard } from '../article-card'
 import ErrorDisplay from '../error-display'
 import NoResultsFound from '../no-results-found'
@@ -11,9 +12,16 @@ interface ArticlesContainerProps {
   keyword: string
 }
 
-export const ArticlesContainer = ({ startDate, endDate, keyword }: ArticlesContainerProps) => {
+export const ArticlesContainer = ({
+  startDate,
+  endDate,
+  keyword,
+}: ArticlesContainerProps) => {
   const { category } = useArticleCategory()
-  const { data, isLoading, isError, error } = useArticle({ queryKeys: [category, keyword, startDate, endDate] })
+  const { source } = useArticleSource()
+  const { data, isLoading, isError, error } = useArticle({
+    queryKeys: [category, keyword, startDate, endDate, source],
+  })
   const articles = data?.results
 
   if (isLoading) {
@@ -30,7 +38,9 @@ export const ArticlesContainer = ({ startDate, endDate, keyword }: ArticlesConta
 
   return (
     <main className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      {articles?.map((article) => <ArticleCard key={article?.uri} article={article} />)}
+      {articles?.map((article) => (
+        <ArticleCard key={article?.uri} article={article} />
+      ))}
     </main>
   )
 }

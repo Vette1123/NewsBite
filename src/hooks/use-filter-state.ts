@@ -14,5 +14,13 @@ export const useFilterState = () => {
     500
   )
 
-  return { startDate, endDate, keyword, setStartDate, setEndDate, setKeyword, debouncedKeyword }
+  return {
+    startDate,
+    endDate,
+    keyword,
+    setStartDate,
+    setEndDate,
+    setKeyword,
+    debouncedKeyword,
+  }
 }
