@@ -8,11 +8,12 @@ import { ArticlesSkeleton } from '../skeletons/articles'
 interface ArticlesContainerProps {
   startDate: Date | undefined
   endDate: Date | undefined
+  keyword: string
 }
 
-export const ArticlesContainer = ({ startDate, endDate }: ArticlesContainerProps) => {
+export const ArticlesContainer = ({ startDate, endDate, keyword }: ArticlesContainerProps) => {
   const { category } = useArticleCategory()
-  const { data, isLoading, isError, error } = useArticle({ queryKeys: [category, '', startDate, endDate] })
+  const { data, isLoading, isError, error } = useArticle({ queryKeys: [category, keyword, startDate, endDate] })
   const articles = data?.results
 
   if (isLoading) {

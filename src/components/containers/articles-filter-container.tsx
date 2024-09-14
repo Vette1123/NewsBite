@@ -1,11 +1,13 @@
 import { NYTSectionCombobox } from '../article-category-search'
 import { DatePickerDemo } from '../date-component'
+import { SearchByKeyword } from '../search-by-keyword'
 
 interface ArticlesFilterContainerProps {
   startDate: Date | undefined
   endDate: Date | undefined
   setStartDate: React.Dispatch<React.SetStateAction<Date | undefined>>
   setEndDate: React.Dispatch<React.SetStateAction<Date | undefined>>
+  debounced: (value: string) => void
 }
 
 export const ArticlesFilterContainer = ({
@@ -13,9 +15,11 @@ export const ArticlesFilterContainer = ({
   endDate,
   setStartDate,
   setEndDate,
+  debounced,
 }: ArticlesFilterContainerProps) => {
   return (
     <div className="flex flex-wrap items-center gap-4">
+      <SearchByKeyword debounced={debounced} />
       <NYTSectionCombobox />
       <div className="flex gap-4">
         <DatePickerDemo label="Start date" date={startDate} setDate={setStartDate} />
