@@ -79,6 +79,30 @@ NewsBite integrates with three powerful news APIs to provide a diverse and compr
 
 - Docker installed on your machine
 
+### Environment Setup
+
+1. Copy the sample environment file:
+
+   ```
+   cp .env.sample .env
+   ```
+
+2. Open the `.env` file and provide your own API keys for the following services:
+
+   - NYT API
+   - The Guardian API
+   - News API
+
+   The `.env` file should look similar to this:
+
+   ```
+   VITE_NYT_API_KEY=your_nyt_api_key_here
+   VITE_THE_GUARDIAN_API_KEY=your_guardian_api_key_here
+   VITE_NEWS_API_ORG_KEY=your_news_api_key_here
+   ```
+
+   Replace `your_*_api_key_here` with your actual API keys obtained from the respective services.
+
 ### Running with Docker
 
 1. Clone the repository:
