@@ -12,7 +12,7 @@ interface ArticlesContainerProps {
 
 export const ArticlesContainer = ({ startDate, endDate }: ArticlesContainerProps) => {
   const { category } = useArticleCategory()
-  const { data, isLoading, isError, error } = useArticle({ queryKey: [category, '', startDate, endDate] })
+  const { data, isLoading, isError, error } = useArticle({ queryKeys: [category, '', startDate, endDate] })
   const articles = data?.results
 
   if (isLoading) {
@@ -23,7 +23,7 @@ export const ArticlesContainer = ({ startDate, endDate }: ArticlesContainerProps
     return <NoResultsFound />
   }
 
-  if (isError) {
+  if (isError || error) {
     return <ErrorDisplay error={error} />
   }
 
