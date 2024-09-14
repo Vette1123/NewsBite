@@ -1,6 +1,6 @@
-import { NYTSectionCombobox } from '../article-category-search'
-import { DatePickerDemo } from '../date-component'
-import { SearchByKeyword } from '../search-by-keyword'
+import { NYTSectionCombobox } from '../filters/article-category-search'
+import { DatePickerDemo } from '../filters/date-component'
+import { SearchByKeyword } from '../filters/search-by-keyword'
 
 interface ArticlesFilterContainerProps {
   startDate: Date | undefined

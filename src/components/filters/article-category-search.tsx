@@ -8,8 +8,8 @@ import { NYT_SECTIONS, NYTSection } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { Check, ChevronsUpDown } from 'lucide-react'
 import * as React from 'react'
-import { Label } from './ui/label'
-import { ScrollArea } from './ui/scroll-area'
+import { Label } from '../ui/label'
+import { ScrollArea } from '../ui/scroll-area'
 
 export function NYTSectionCombobox() {
   const [open, setOpen] = React.useState(false)
