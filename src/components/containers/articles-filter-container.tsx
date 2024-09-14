@@ -1,4 +1,5 @@
 import { NYTSectionCombobox } from '../filters/article-category-search'
+import { ArticleAuthorCombobox } from '../filters/author-filter'
 import { DatePickerDemo } from '../filters/date-component'
 import { SearchByKeyword } from '../filters/search-by-keyword'
 import { ArticleSourceCombobox } from '../filters/sources-filter'
@@ -23,6 +24,7 @@ export const ArticlesFilterContainer = ({
       <SearchByKeyword debounced={debounced} />
       <NYTSectionCombobox />
       <ArticleSourceCombobox />
+      <ArticleAuthorCombobox />
       <div className="flex gap-4">
         <DatePickerDemo
           label="Start date"
