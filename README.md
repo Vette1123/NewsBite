@@ -1,12 +1,12 @@
 # NewsBite: Advanced News Aggregator
 
-NewsBite is a cutting-edge news aggregation application that provides users with a seamless and personalized news browsing experience. Built with React, TypeScript, and leveraging the power of modern web technologies, NewsBite offers a rich set of features designed to keep users informed and engaged.
+NewsBite is a news aggregation app built with React and TypeScript. It pulls articles from several news APIs into one feed that you can filter by category, date, keyword, source and author.
 
 ## 🌟 Features
 
 ### 1. Multi-Source News Integration
 
-- Aggregates news from multiple reputable sources, including The New York Times API.
+- Aggregates news from multiple sources, including The New York Times API.
 - Unified article format for consistent presentation across different sources.
 
 ### 2. Advanced Filtering System
@@ -15,36 +15,36 @@ NewsBite is a cutting-edge news aggregation application that provides users with
 - **Date Range Selection**: Filter articles within a custom date range.
 - **Keyword Search**: Find articles containing specific keywords or phrases.
 - **Source Filter**: Focus on news from particular sources.
-- **Author Filter**: Discover articles by specific journalists or authors.
+- **Author Filter**: Find articles by specific journalists or authors.
 
 ### 3. Responsive and Accessible Design
 
-- Fully responsive layout that adapts to various screen sizes and devices.
-- Implements accessibility best practices for an inclusive user experience.
+- Responsive layout that adapts to different screen sizes and devices.
+- Follows accessibility best practices.
 
 ### 4. Dark Mode Support
 
-- Toggle between light and dark themes for comfortable reading in any environment.
+- Toggle between light and dark themes.
 
 ### 5. Real-Time Updates
 
-- Utilizes React Query for efficient data fetching and caching.
-- Automatic refetching to ensure the latest news is always available.
+- Uses React Query for data fetching and caching.
+- Refetches automatically so the news stays current.
 
 ### 6. Rich Article Cards
 
-- Visually appealing article cards with images, titles, abstracts, and metadata.
+- Article cards show images, titles, abstracts, and metadata.
 - Quick access to full articles via external links.
 
 ### 7. Performance Optimized
 
-- Implements lazy loading and code splitting for faster initial load times.
-- Efficient state management using Zustand for a smooth user experience.
+- Lazy loading and code splitting for faster initial load.
+- State management with Zustand.
 
 ### 8. Error Handling and Loading States
 
-- Graceful error handling with user-friendly error messages.
-- Skeleton loading states for a polished loading experience.
+- Error handling with readable error messages.
+- Skeleton loading states.
 
 ### 9. Customizable User Preferences
 
@@ -52,25 +52,25 @@ NewsBite is a cutting-edge news aggregation application that provides users with
 
 ### 10. Mobile-First Navigation
 
-- Intuitive mobile navigation with a responsive header and mobile menu.
+- Mobile navigation with a responsive header and mobile menu.
 
 ### 11. Internationalization Ready
 
-- Structure in place to easily add multi-language support.
+- The structure is set up for adding more languages.
 
 ## 📰 News APIs Used
 
-NewsBite integrates with three powerful news APIs to provide a diverse and comprehensive news feed:
+NewsBite uses three news APIs:
 
-1. **The New York Times API**: Offers access to high-quality journalism and breaking news from one of the world's leading news organizations.
+1. **The New York Times API**: Articles and breaking news from The New York Times.
 
    - [NYT API Documentation](https://developer.nytimes.com/apis)
 
-2. **The Guardian API**: Provides a wide range of news articles from The Guardian and The Observer, known for their investigative journalism and international coverage.
+2. **The Guardian API**: News articles from The Guardian and The Observer.
 
    - [The Guardian API Documentation](https://open-platform.theguardian.com/documentation/)
 
-3. **News API**: Aggregates headlines from over 80,000 sources worldwide, offering a broad spectrum of news content.
+3. **News API**: Headlines from over 80,000 sources worldwide.
    - [News API Documentation](https://newsapi.org/docs)
 
 ## 🚀 Getting Started
@@ -129,13 +129,13 @@ NewsBite integrates with three powerful news APIs to provide a diverse and compr
 
 ### Docker Features
 
-Our Dockerfile implements several best practices and features:
+The Dockerfile has these features:
 
-- **Multi-stage build**: Optimizes the final image size by separating build and runtime environments.
-- **Non-root user**: Enhances security by running the application as a non-root user.
-- **Health check**: Ensures the application is running correctly within the container.
-- **Environment variables**: Allows for easy configuration of API keys and other settings.
-- **Caching**: Leverages Docker layer caching for faster builds.
+- **Multi-stage build**: Keeps the final image small by separating build and runtime environments.
+- **Non-root user**: Runs the application as a non-root user.
+- **Health check**: Checks that the application is running inside the container.
+- **Environment variables**: API keys and other settings are set through environment variables.
+- **Caching**: Uses Docker layer caching to speed up builds.
 
 ## 🛠️ Technologies Used
 
@@ -164,4 +164,4 @@ This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 - The Guardian API
 - News API
 - All other news sources and APIs used in this project
-- The open-source community for the amazing tools and libraries
+- The open-source community for the tools and libraries
